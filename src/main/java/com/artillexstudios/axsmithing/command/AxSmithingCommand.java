@@ -10,14 +10,23 @@ import org.jetbrains.annotations.NotNull;
 public class AxSmithingCommand implements CommandExecutor {
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label,
+            @NotNull String[] args)
+    {
+
         if (!sender.hasPermission("axsmithing.reload")) {
-            sender.sendMessage(StringUtils.format(AxSmithingPlugin.getConfiguration().getString("messages.prefix") + AxSmithingPlugin.getConfiguration().getString("messages.no-permission")));
+
+            sender.sendMessage(StringUtils.format(AxSmithingPlugin.getConfiguration().getString("messages.prefix")
+                    + AxSmithingPlugin.getConfiguration().getString("messages.no-permission")));
             return true;
+
         }
 
         String took = String.valueOf(AxSmithingPlugin.getInstance().reloadWithTime());
-        sender.sendMessage(StringUtils.format(AxSmithingPlugin.getConfiguration().getString("messages.prefix") + AxSmithingPlugin.getConfiguration().getString("messages.reload").replace("%time%", took)));
+        sender.sendMessage(StringUtils.format(AxSmithingPlugin.getConfiguration().getString("messages.prefix")
+                + AxSmithingPlugin.getConfiguration().getString("messages.reload").replace("%time%", took)));
         return true;
+
     }
+
 }

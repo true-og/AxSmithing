@@ -15,6 +15,7 @@ import java.util.Map;
 public class DependencyManager {
 
     public void load(JavaPlugin plugin, InputStream stream) {
+
         BukkitLibraryManager manager = new BukkitLibraryManager(plugin, "libraries");
         manager.addMavenCentral();
         manager.addMavenLocal();
@@ -29,17 +30,26 @@ public class DependencyManager {
         Object dep = read.get("dependencies");
 
         if (rep instanceof ArrayList<?> repositories) {
+
             for (Object repository : repositories) {
-                if (repository instanceof LinkedTreeMap<?,?> repos) {
+
+                if (repository instanceof LinkedTreeMap<?, ?> repos) {
+
                     String url = (String) repos.get("url");
                     manager.addRepository(url);
+
                 }
+
             }
+
         }
 
         if (dep instanceof ArrayList<?> libraries) {
+
             for (Object o : libraries) {
-                if (o instanceof LinkedTreeMap<?,?> map) {
+
+                if (o instanceof LinkedTreeMap<?, ?> map) {
+
                     String group = (String) map.get("group");
                     String artifact = (String) map.get("artifact");
                     String version = (String) map.get("version");
@@ -47,17 +57,26 @@ public class DependencyManager {
                     Library.Builder builder = Library.builder().groupId(group).artifactId(artifact).version(version);
 
                     if (map.containsKey("relocate")) {
-                        LinkedTreeMap<?, ?> relocate = (LinkedTreeMap<?,?>) map.get("relocate");
+
+                        LinkedTreeMap<?, ?> relocate = (LinkedTreeMap<?, ?>) map.get("relocate");
                         builder.relocate((String) relocate.get("from"), (String) relocate.get("to"));
+
                     }
 
                     if (map.containsKey("isolated")) {
+
                         builder.isolatedLoad((Boolean) map.get("isolated"));
+
                     }
 
                     manager.loadLibrary(builder.build());
+
                 }
+
             }
+
         }
+
     }
+
 }

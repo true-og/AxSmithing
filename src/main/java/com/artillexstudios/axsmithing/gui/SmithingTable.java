@@ -14,4 +14,5 @@ public interface SmithingTable {
     void handleClose(InventoryCloseEvent event);
 
     void handleDrag(InventoryDragEvent event);
+
 }

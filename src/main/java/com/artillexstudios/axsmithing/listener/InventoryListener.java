@@ -12,16 +12,23 @@ public class InventoryListener implements Listener {
 
     @EventHandler
     public void onInventoryClickEvent(@NotNull final InventoryClickEvent event) {
+
         AxSmithingPlugin.getSmithingTableImpl().handleClick(event);
+
     }
 
     @EventHandler
     public void onInventoryDragEvent(@NotNull final InventoryDragEvent event) {
+
         AxSmithingPlugin.getSmithingTableImpl().handleDrag(event);
+
     }
 
     @EventHandler
     public void onInventoryCloseEvent(@NotNull final InventoryCloseEvent event) {
+
         AxSmithingPlugin.getSmithingTableImpl().handleClose(event);
+
     }
+
 }

@@ -18,12 +18,14 @@ out/
 
 ### Eclipse ###
 .apt_generated
+.checkstyle
 .classpath
 .factorypath
 .project
 .settings
 .springBeans
 .sts4-cache
+.kotlin
 bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
