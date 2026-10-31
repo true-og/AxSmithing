@@ -49,7 +49,7 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT") // Import the Spigot API.
     compileOnly(
         "com.viaversion:viaversion-api:5.9.1"
-    ) // Import the ViaVersion API (closest official to true-og/ViaVersion 5.9.2-SNAPSHOT).
+    ) // Import the ViaVersion API (closest official to trueog/ViaVersion 5.9.2-SNAPSHOT).
 }
 
 apply(from = "eclipse.gradle.kts") // Import eclipse classpath support script.
